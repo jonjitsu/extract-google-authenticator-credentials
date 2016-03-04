@@ -3,9 +3,9 @@ This was tested only with google authenticator v2.49 on android 4.4.4 (rooted) f
 ## Directions
 1. Make sure you have sqlite3, netcat (nc), adb and bash installed on your machine
 1. Plug in the phone
-1. Check that you can see the device using adb devices
+1. Check that you can see the device using ```adb devices```
 1. If yes, run ```./extract.sh```
-1. If no error showed, it means it worked and the file is not inside ```data/databases```
+1. If no error showed, it means it worked and the file was saved to ```./data/databases```
 1. If step 4 was successful, run ```./dumpcsv.sh```
 1. run ```./server.sh```
 1. goto http://localhost:2001 in your browser
