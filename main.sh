@@ -1,8 +1,10 @@
 #!/bin/bash
 
-./clean.sh
-./extract.sh
-./dumpcsv.sh
+if [[ -z $1 ]]; then
+    echo ./clean.sh
+    echo ./extract.sh
+fi
+./dumpcsv.sh "$1"
 sleep 1 && sensible-browser http://localhost:2001
-./server.sh
+./server.sh "$1"
 

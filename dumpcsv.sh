@@ -1,3 +1,10 @@
 #!/bin/bash
+set -e
+set -o pipefail
 
-mkdir -p ./data && echo ".schema accounts" | sqlite3 ./data/databases > ./data/schema.txt && echo "select * from accounts;" | sqlite3 -separator ';' ./data/databases > ./data/dump.csv
+[[ -z $1 ]] \
+    && data_dir=./data \
+    || data_dir="$1"
+
+echo ".schema accounts" | sqlite3 "${data_dir}"/databases > "${data_dir}"/schema.txt
+echo "select * from accounts;" | sqlite3 -separator ';' "${data_dir}"/databases > "${data_dir}"/dump.csv
